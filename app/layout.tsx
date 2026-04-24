@@ -83,8 +83,8 @@ export default function RootLayout({
               <ul className="menu">
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/catalogo">Directorio Hentai</a></li>
-                <li><a href="/catalogo">Estrenos</a></li>
-                <li><a href="#">Peticiones</a></li>
+                <li><a href="/tierlist">Tierlist</a></li>
+                <li><a href="/hentainator">HentaiNator</a></li>
               </ul>
             </div>
             <p className="copy cont">

@@ -251,8 +251,8 @@ export default function HeaderClient() {
             <a href="/">Inicio</a>
           </li>
           <li className="fa-star">
-            <a href="/catalogo" title="Estrenos Hentai">
-              Próximos Estrenos
+            <a href="/tierlist" title="Tierlist">
+              Tierlist
             </a>
           </li>
           <li className="fa-play">
@@ -264,7 +264,9 @@ export default function HeaderClient() {
             <a href="/catalogo">Directorio Hentai</a>
           </li>
           <li className="hfa-question-circle">
-            <a href="#">Peticiones</a>
+            <a href="/hentainator" title="HentaiNator">
+              HentaiNator
+            </a>
           </li>
         </ul>
       </nav>
