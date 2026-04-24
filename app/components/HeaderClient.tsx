@@ -293,8 +293,8 @@ export default function HeaderClient() {
 
       {/* USER ICON */}
       <div className="user-box">
-        <a href="#" rel="nofollow" className="btn btn-user lnk npd">
-          <span className="avatar">
+        <a href="#" rel="nofollow" className="btn btn-user lnk npd" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <span className="avatar" style={{ display: "flex" }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24.9"
