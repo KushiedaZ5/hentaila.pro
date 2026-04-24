@@ -22,8 +22,8 @@ interface Episode {
   id_episodio: number;
   id_anime: number;
   numero: number;
-  titulo: string;
-  thumbnail: string;
+  titulo_episodio: string;
+  thumb: string;
   fecha_estreno: string;
 }
 
@@ -119,7 +119,7 @@ export default async function HomePage() {
               <div className="h-thumb">
                 <figure>
                   <img
-                    src={imgPath(ep.thumbnail || ep.anime?.url_portada)}
+                    src={imgPath(ep.thumb || ep.anime?.url_portada)}
                     alt={`${ep.anime?.titulo} ${ep.numero}`}
                   />
                 </figure>

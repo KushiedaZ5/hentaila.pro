@@ -23,12 +23,13 @@ export const metadata = {
 export default async function CatalogoPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  const page = typeof searchParams.page === "string" ? parseInt(searchParams.page, 10) : 1;
-  const letter = typeof searchParams.letter === "string" ? searchParams.letter : "all";
-  const state = typeof searchParams.state === "string" ? searchParams.state : "all";
-  const sort = typeof searchParams.sort === "string" ? searchParams.sort : "recent";
+  const resolvedParams = await searchParams;
+  const page = typeof resolvedParams.page === "string" ? parseInt(resolvedParams.page, 10) : 1;
+  const letter = typeof resolvedParams.letter === "string" ? resolvedParams.letter : "all";
+  const state = typeof resolvedParams.state === "string" ? resolvedParams.state : "all";
+  const sort = typeof resolvedParams.sort === "string" ? resolvedParams.sort : "recent";
   
   const itemsPerPage = 20;
   

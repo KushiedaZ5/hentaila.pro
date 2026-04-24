@@ -5,8 +5,11 @@ export const metadata: Metadata = {
   title: "Ver Hentai Online | HentaiLA",
   description:
     "HentaiLA el mejor sitio para ver hentai en Latinoamérica. Streaming HD sin censura.",
-  themeColor: "#000",
 };
+
+export function generateViewport() {
+  return { themeColor: "#000" };
+}
 
 export default function RootLayout({
   children,
