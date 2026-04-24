@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabase";
 import { timeAgo } from "@/lib/timeAgo";
 import { imgPath } from "@/lib/imgPath";
 import Link from "next/link";
+import HomeSlider from "./components/HomeSlider";
 
 // Types
 interface Anime {
@@ -71,42 +72,8 @@ export default async function HomePage() {
         <div className="home-slider" data-bind="slider"></div>
       </div>
 
-      {/* SLIDER PRINCIPAL */}
-      <section className="latest-hentais section top">
-        <div className="slider" id="main-slider">
-          {sliderAnimes.map((anime) => (
-            <div className="item" key={anime.id_anime}>
-              <article className="cont">
-                <header className="h-header">
-                  <h2 className="h-title">
-                    <Link href={`/hentai/${anime.slug}`}>{anime.titulo}</Link>
-                  </h2>
-                  <div className="h-meta">
-                    <span className="type-hentai">Hentai</span>
-                    <span className="status-on">
-                      <i aria-hidden="true">Estado</i> {anime.estado}
-                    </span>
-                  </div>
-                </header>
-                <div className="h-content">
-                  <p>{anime.sinopsis}</p>
-                </div>
-                <footer className="h-footer">
-                  <nav className="genres">
-                    <span className="fa-folders">Géneros</span>
-                  </nav>
-                </footer>
-              </article>
-              <figure className="bg">
-                <img
-                  src={imgPath(anime.url_portada)}
-                  alt={`Background ${anime.titulo}`}
-                />
-              </figure>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* SLIDER PRINCIPAL — Client Component */}
+      <HomeSlider slides={sliderAnimes} />
 
       {/* EPISODIOS RECIENTES */}
       <section className="section episodes">

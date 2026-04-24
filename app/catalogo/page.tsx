@@ -30,11 +30,17 @@ export default async function CatalogoPage({
   const letter = typeof resolvedParams.letter === "string" ? resolvedParams.letter : "all";
   const state = typeof resolvedParams.state === "string" ? resolvedParams.state : "all";
   const sort = typeof resolvedParams.sort === "string" ? resolvedParams.sort : "recent";
+  const searchQuery = typeof resolvedParams.q === "string" ? resolvedParams.q.trim() : "";
   
   const itemsPerPage = 20;
   
   // Base query
   let query = supabase.from("animes").select("*", { count: "exact" });
+
+  // Search query filter (from header search bar)
+  if (searchQuery.length > 0) {
+    query = query.ilike("titulo", `%${searchQuery}%`);
+  }
 
   // Filters
   if (letter !== "all" && letter.length === 1) {
@@ -71,6 +77,9 @@ export default async function CatalogoPage({
   // Generar letras para el filtro
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
+  // Build the base URL params (propagate q if present)
+  const qParam = searchQuery ? `&q=${encodeURIComponent(searchQuery)}` : "";
+
   return (
     <>
       {/* BREADCRUMB + TÍTULO */}
@@ -81,11 +90,17 @@ export default async function CatalogoPage({
         </nav>
         <div className="top-header">
           <section className="section-header">
-            <h1 className="section-title">Directorio de hentai</h1>
-            <p>
-              En esta sección podrás filtrar tus hentais en categorías, géneros, por
-              la letra inicial del nombre, los más populares y más.
-            </p>
+            <h1 className="section-title">
+              {searchQuery
+                ? `Resultados para: "${searchQuery}"`
+                : "Directorio de hentai"}
+            </h1>
+            {!searchQuery && (
+              <p>
+                En esta sección podrás filtrar tus hentais en categorías, géneros, por
+                la letra inicial del nombre, los más populares y más.
+              </p>
+            )}
           </section>
         </div>
       </section>
@@ -94,14 +109,14 @@ export default async function CatalogoPage({
       <section className="section">
         <ul className="alpha-list" id="alpha-list">
           <li>
-            <Link href={`/catalogo?letter=all&state=${state}&sort=${sort}`} className={letter === "all" ? "on" : ""}>
+            <Link href={`/catalogo?letter=all&state=${state}&sort=${sort}${qParam}`} className={letter === "all" ? "on" : ""}>
               #
             </Link>
           </li>
           {letters.map((l) => (
             <li key={l}>
               <Link
-                href={`/catalogo?letter=${l}&state=${state}&sort=${sort}`}
+                href={`/catalogo?letter=${l}&state=${state}&sort=${sort}${qParam}`}
                 className={letter === l ? "on" : ""}
               >
                 {l}
@@ -180,9 +195,9 @@ export default async function CatalogoPage({
                 Resultados <span id="results-count">{totalCount} encontrados</span>
               </h3>
               <div className="sort-by" style={{ display: 'flex', gap: '10px' }}>
-                <Link href={`/catalogo?letter=${letter}&state=${state}&sort=recent`} className={`btn lnk npd ${sort === 'recent' ? 'text-primary' : ''}`}>Recientes</Link>
-                <Link href={`/catalogo?letter=${letter}&state=${state}&sort=popular`} className={`btn lnk npd ${sort === 'popular' ? 'text-primary' : ''}`}>Populares</Link>
-                <Link href={`/catalogo?letter=${letter}&state=${state}&sort=az`} className={`btn lnk npd ${sort === 'az' ? 'text-primary' : ''}`}>A-Z</Link>
+                <Link href={`/catalogo?letter=${letter}&state=${state}&sort=recent${qParam}`} className={`btn lnk npd ${sort === 'recent' ? 'text-primary' : ''}`}>Recientes</Link>
+                <Link href={`/catalogo?letter=${letter}&state=${state}&sort=popular${qParam}`} className={`btn lnk npd ${sort === 'popular' ? 'text-primary' : ''}`}>Populares</Link>
+                <Link href={`/catalogo?letter=${letter}&state=${state}&sort=az${qParam}`} className={`btn lnk npd ${sort === 'az' ? 'text-primary' : ''}`}>A-Z</Link>
               </div>
             </header>
             
@@ -222,7 +237,7 @@ export default async function CatalogoPage({
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
                     <li key={p}>
                       <Link
-                        href={`/catalogo?page=${p}&letter=${letter}&state=${state}&sort=${sort}`}
+                        href={`/catalogo?page=${p}&letter=${letter}&state=${state}&sort=${sort}${qParam}`}
                         className={`btn rnd npd ${p === page ? "send-btn" : ""}`}
                         style={{ display: 'inline-block', minWidth: '36px', textAlign: 'center' }}
                       >
