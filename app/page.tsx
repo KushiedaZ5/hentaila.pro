@@ -4,6 +4,8 @@ import { imgPath } from "@/lib/imgPath";
 import Link from "next/link";
 import HomeSlider from "./components/HomeSlider";
 
+export const revalidate = 0;
+
 // Types
 interface Anime {
   id_anime: number;

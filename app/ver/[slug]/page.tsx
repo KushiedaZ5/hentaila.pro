@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import PlayerClient from "./PlayerClient";
 
+export const revalidate = 0;
+
 // =============================================
 // Types
 // =============================================

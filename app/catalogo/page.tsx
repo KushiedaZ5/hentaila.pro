@@ -3,6 +3,8 @@ import { imgPath } from "@/lib/imgPath";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
+export const revalidate = 0;
+
 // Definimos los tipos
 interface Anime {
   id_anime: number;
