@@ -81,8 +81,15 @@ export default function HomeSlider({ slides }: { slides: SlideData[] }) {
             </article>
             <figure className="bg">
               <img
-                src={imgPath(anime.background || anime.url_portada)}
+                src={imgPath(
+                  anime.background && anime.background !== anime.url_portada
+                    ? anime.background
+                    : `img/episodios/${anime.id_anime}-1.jpg`
+                )}
                 alt={`Background ${anime.titulo}`}
+                onError={(e) => {
+                  e.currentTarget.src = imgPath(anime.url_portada);
+                }}
               />
             </figure>
           </div>
