@@ -151,33 +151,29 @@ export default async function HomePage() {
         <div className="h-content">
           <h3>Hentai Online en HD!</h3>
           <p>
-            Nuestra misión es brindarte el mejor contenido lo antes posible.
-            Tenemos una gran variedad de títulos en nuestro apartado &quot;
-            <a href="/catalogo">Directorio de Hentais</a>&quot;, los podrás
-            segmentar en categorías, emisión o finalizado,{" "}
-            <strong>sin censura</strong>! también serás capaz de agregar tus
-            hentais a favoritos.
+            Nuestra misión es brindarte el mejor hidrógeno lo antes posible, en HLA tienes una gran variedad de títulos en nuestro apartado &quot;<strong>Directorio de Hentais</strong>&quot;, los podrás segmentar en categorías, emisión o finalizado, sin censura! también serás capaz de agregar tus hentais a favoritos, así te será más fácil recordar con que anime te la estabas ********** D:!
           </p>
           <h3>Qué es Hentai?</h3>
           <p>
-            Anime porno o porno anime, como gustes leerlo. Al igual que en el
-            anime muchos de los episodios que ves, tienen su respectivo manga
-            aunque esto no es ley, pero por lo general sí.
+            En serio estás leyendo esta parte? pues que te puedo decir, lo resumiré forma simple y sencilla. Anime porno o porno anime, como gustes leerlo, pues eso, al igual que en el anime muchos de los episodios <strong>hentai</strong> que ves, tienen su respectivo manga aunque esto no es ley, pero por lo general si, así que si tienen ganas de leer manga caliente muy pronto tendremos esa opción en HLA!
           </p>
           <h3>Fetiches Hentai</h3>
           <p>
-            Son hentais en la cual una chica (casi siempre) tiene relaciones con
-            algún monstruo con tentáculos. Esta categoría la pueden encontrar en
-            nuestro directorio como <a href="#">Hentai tentáculos</a>.
+            Ya estamos entrando en una zona oscura, pero es algo real no feik, a quién carajos le excita ver tentáculos! ok no me juzguen. Les comento esto porque esta es una de las categorías más populares, volviendo al tema son hentais en la cual una chica (casi siempre) tiene relaciones sexuales con algún monstruo con tentáculos, y ya saben lo que pasa con esos tentáculos no? jajaja! bueno ya saben esta categoría la pueden encontrar en nuestro directorio como, <strong>Hentai tentáculos</strong>
           </p>
           <h3>Hentai sin Censura:</h3>
           <p>
-            Todos quisiéramos disfrutar hentai sin censura, pero esto es muy
-            difícil dadas las leyes penales de Japón que prohíben la publicación
-            de material &quot;moralmente perjudicial&quot;. De igual modo
-            tenemos una sección muy especial llamada{" "}
-            <a href="#">Hentai sin censura!</a>
+            Todos quisiéramos disfrutar hentai sin censura, pero esto es muy difícil dadas las leyes penales de japón que prohíben la publicación de material &quot;moralmente perjudicial&quot;, ¿que quiere decir esto? que las obras audiovisuales no podrán mostrar las partes genitales de los dibujos o personas, es así como vemos cientos de vídeos pixeleados o con franjas de color negro, esto pasa en el Hentai y en películas (Con razón ven hentai en vez de porno real)! de igual modo en HentaiLA nos preocupamos por ti y es por eso que tenemos una sección muy especial llamada <strong>Hentai sin censura!</strong> la encontrarás en nuestro listado o directorio de Hentais!
           </p>
+          <h3>Los géneros más populares en el Hentai!</h3>
+          <p>
+            Claro que todos aman las lolis! pero dadas las estadísticas, los géneros de Hentai más populares son el Yaoi y el Yuri. No creo que tenga explicar el significado de cada uno de estos, si es así te invito a abandonar inmediatamente HentaiLA hombre de poca cultura! es broma! Ok no, vale lo explicaré.
+          </p>
+          <ul>
+            <li><strong>Yaoi</strong>: Morritos del mismo sexo teniendo relaciones!</li>
+            <li><strong>Yuri</strong>: Morritas haciendo tijeras, el popular pan con pan! :D!</li>
+          </ul>
+          <p>Si estoy equivocado me pueden corregir!</p>
         </div>
       </section>
     </>
