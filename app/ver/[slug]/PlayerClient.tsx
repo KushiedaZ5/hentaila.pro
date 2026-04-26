@@ -27,6 +27,7 @@ export default function PlayerClient({ videos, downloads }: PlayerClientProps) {
   const [showDownloadModal, setShowDownloadModal] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [copySuccess, setCopySuccess] = useState(false);
 
   // Close modals on ESC
   useEffect(() => {
@@ -235,26 +236,50 @@ export default function PlayerClient({ videos, downloads }: PlayerClientProps) {
             </button>
           </div>
           <div className="mdl-bd">
-            <ul className="share-list">
-              <li>
+            <ul className="share-list" style={{ display: 'flex', gap: '20px', justifyContent: 'center', padding: '1rem 0' }}>
+              <li style={{ width: 'auto' }}>
                 <a
-                  href="#"
+                  href={`https://twitter.com/intent/tweet?url=${typeof window !== 'undefined' ? window.location.href : ''}`}
                   className="fa-twitter"
                   target="_blank"
                   rel="nofollow"
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
                 >
-                  Twitter
+                  <span style={{ whiteSpace: 'nowrap', marginTop: '4px' }}>Twitter</span>
                 </a>
               </li>
-              <li>
+              <li style={{ width: 'auto' }}>
                 <a
-                  href="#"
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${typeof window !== 'undefined' ? window.location.href : ''}`}
                   className="fa-facebook"
                   target="_blank"
                   rel="nofollow"
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
                 >
-                  Facebook
+                  <span style={{ whiteSpace: 'nowrap', marginTop: '4px' }}>Facebook</span>
                 </a>
+              </li>
+              <li style={{ width: 'auto' }}>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      await navigator.clipboard.writeText(window.location.href);
+                      setCopySuccess(true);
+                      setTimeout(() => setCopySuccess(false), 2000);
+                    } catch (err) {
+                      console.error('Failed to copy', err);
+                    }
+                  }}
+                  style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', background: 'transparent', border: 'none', color: 'var(--text, #fff)', cursor: 'pointer', padding: 0 }}
+                >
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#4a4a4a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <i className={copySuccess ? "fa-check" : "fa-link"} style={{ fontSize: '1.2rem', color: copySuccess ? '#4caf50' : '#fff' }}></i>
+                  </div>
+                  <span style={{ whiteSpace: 'nowrap', marginTop: '4px', fontSize: '14px' }}>
+                    {copySuccess ? "¡Copiado!" : "Copiar Link"}
+                  </span>
+                </button>
               </li>
             </ul>
           </div>
